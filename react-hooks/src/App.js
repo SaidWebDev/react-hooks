@@ -1,18 +1,14 @@
-import React , {useEffect} from 'react'
+import React , {useEffect, useState} from 'react'
 import {useForm} from "./useForm";
-
+import {Hello} from "./Hello"
 
 const App=() =>{
   const [values, handleChange]= useForm({email:'', password:'', firstName:''});
-  
-  // Adding effect only if password or email value change
-  useEffect(()=>{
-    console.log("render");
-  }, [values.password, values.email ])
-  
+  const [showHello, setShowHello]= useState(true);
+
   return (
     <div>
-      
+ 
       <input
          name="email"
          placeholder="email"
