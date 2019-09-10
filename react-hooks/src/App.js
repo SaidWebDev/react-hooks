@@ -1,17 +1,36 @@
-import React , {useState} from 'react'
+import React , {useEffect} from 'react'
+import {useForm} from "./useForm";
+
 
 const App=() =>{
-  const [count, setCount]= useState(10);
-  const [count2, setCount2]= useState(20);
+  const [values, handleChange]= useForm({email:'', password:'', firstName:''});
+  
+  // Adding effect only if password or email value change
+  useEffect(()=>{
+    console.log("render");
+  }, [values.password, values.email ])
+  
   return (
     <div>
-      <button onClick=
-      {()=>{
-      setCount(c=> c +1);
-      setCount2(c=> c+10)
-      }}> +</button>
-      <div> count: {count}</div>
-      <div> count2: {count2}</div>
+      
+      <input
+         name="email"
+         placeholder="email"
+         value={values.email}
+         onChange={handleChange}
+      ></input>
+      <input
+         name="firstName"
+         placeholder="first name"
+         value={values.firstName}
+         onChange={handleChange}
+      ></input>
+            <input
+         name="password"
+         type= "password"
+         value={values.password}
+         onChange={handleChange}
+      ></input>
     </div>
   )
 }
