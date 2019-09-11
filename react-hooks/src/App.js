@@ -9,15 +9,15 @@ const App=() =>{
    const inputRef = useRef();
    const [showHello, setShowHello] = useState(true);
   
-   useLayoutEffect(()=>{
-     console.log("The dimensions are", inputRef.current.getBoundingClientRect())
-   })
+  //  useLayoutEffect(()=>{
+  //    console.log("The dimensions are", inputRef.current.getBoundingClientRect())
+  //  })
   
   return (
     <div>
    
       <button onClick={() => setShowHello(!showHello)}>toggle</button>
-      {showHello && <Hello/>}
+     {showHello && <Hello/>}
       <input ref={inputRef}
          name="email"
          placeholder="email"

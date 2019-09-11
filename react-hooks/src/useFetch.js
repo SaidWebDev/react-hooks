@@ -18,11 +18,11 @@ import {useEffect, useRef, useState} from "react"
         .then(x => x.text())
         .then(
             y=>{
-                setTimeout(()=>{
+                
                     if(isCurrent.current){
-                        setState({data:y, loading:false});
+                setState({data:y, loading:false});
                     }
-                }, 2000) 
+               
             }
         );
     }, [url, setState]);
